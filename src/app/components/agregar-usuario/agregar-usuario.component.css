@@ -1,0 +1,35 @@
+
+.contenedor{
+  display: grid;
+  place-items: center;
+}
+.contenedor-registro{
+  width: calc(45%);
+  height: 600px;
+  margin-top: calc(3%);
+  margin-left: 15px;
+}
+mat-form-field{
+  margin-right: 15px;
+}
+button{
+  margin-right: 15px;
+  color: white;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+   -moz-appearance:textfield;
+   appearance: textfield;
+  }
+mat-stepper{
+  border-radius: 20px;
+  background: none;
+}
+.stepper-label{
+  color: white;
+}

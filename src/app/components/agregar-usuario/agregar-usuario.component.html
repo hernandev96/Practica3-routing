@@ -1,0 +1,75 @@
+<app-barra-menu></app-barra-menu>
+
+<div class="contenedor">
+  <div class="contenedor-registro">
+    <mat-stepper linear #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Datos personales</ng-template>
+
+          <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="Nombre" formControlName="nombreCtrl"
+                required type="text" name="nombre" >
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Apellidos</mat-label>
+            <input matInput placeholder="Apellidos" formControlName="apellidoCtrl"
+                required type="text" >
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Edad</mat-label>
+            <input matInput placeholder="Edad" formControlName="edadCtrl"
+                required type="number" >
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Peso</mat-label>
+            <input matInput placeholder="Peso" formControlName="pesoCtrl"
+                required type="number" >
+          </mat-form-field>
+
+          <div>
+            <button mat-raised-button matStepperNext color="primary">Siguiente</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Datos de contacto</ng-template>
+          <mat-form-field>
+            <mat-label>Domicilio</mat-label>
+            <input matInput  placeholder="Ex. 1 Main St, New York, NY"
+                   required formControlName="domicilioCtrl" type="text" >
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Telèfono</mat-label>
+            <input matInput  placeholder="55-56-78-90-56"
+                   required formControlName="telefonoCtrl" type="text" >
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Correo Electornico</mat-label>
+            <input matInput  placeholder="example@example.com" type="email"
+                   required formControlName="correoCtrl" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}">
+          </mat-form-field>
+
+          <div>
+            <button mat-raised-button color="primary" matStepperPrevious>Regresar</button>
+            <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Terminar Registro</ng-template>
+        <img src="../../../assets/images/registro-terminado.png" alt="Imagen termino de registro" width="128" height="128">
+        <p>You are now done.</p>
+        <div>
+          <button mat-raised-button color="primary" matStepperPrevious>Regresar</button>
+          <button mat-raised-button color="accent" (click)="EnviarUsuario();stepper.reset();">Registrar</button>
+        </div>
+      </mat-step>
+    </mat-stepper>
+  </div>
+</div>

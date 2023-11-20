@@ -1,0 +1,159 @@
+<app-barra-menu></app-barra-menu>
+
+<div class="contenedor">
+  <div class="contenedor-usuarios">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <img
+              src="../../../assets/images/id.png"
+              alt="id imagen"
+              width="32"
+              height="32"
+            />
+            ID
+          </th>
+          <th>
+            <img
+              src="../../../assets/images/name.png"
+              alt="id imagen"
+              width="32"
+              height="32"
+            />Nombre
+          </th>
+          <th>
+            <img
+              src="../../../assets/images/name.png"
+              alt="id imagen"
+              width="32"
+              height="32"
+            />Apellidos
+          </th>
+          <th>
+            <img
+              src="../../../assets/images/options.png"
+              alt="id imagen"
+              width="32"
+              height="32"
+            />Opciones
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios; index as indice">
+          <td>
+            {{ usuario.id }}
+          </td>
+          <td>
+            {{ usuario.nombre }}
+          </td>
+          <td>
+            {{ usuario.apellido }}
+          </td>
+          <td>
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="mostrarDetalles(indice)"
+            >
+              Actualizar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cont1">
+    <div class="contenedor-informacion" *ngIf="usuarioMuestra.nombre != null">
+      <mat-card>
+        <mat-card-header>
+          <h1>Detalles del usuario</h1>
+        </mat-card-header>
+        <mat-card-content>
+          <form (ngSubmit)="actualizarUsuario()">
+            <mat-form-field>
+              <mat-label>Nombre</mat-label>
+              <input
+                type="text"
+                matInput
+                name="nombre"
+                [(ngModel)]="usuarioMuestra.nombre"
+                disabled
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Apellido(s)</mat-label>
+              <input
+                type="text"
+                matInput
+                name="apellido"
+                [(ngModel)]="usuarioMuestra.apellido"
+                disabled
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Edad</mat-label>
+              <input
+                type="number"
+                matInput
+                name="edad"
+                [(ngModel)]="usuarioMuestra.edad"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Peso</mat-label>
+              <input
+                type="number"
+                matInput
+                name="peso"
+                [(ngModel)]="usuarioMuestra.peso"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Domicilio</mat-label>
+              <input
+                type="text"
+                matInput
+                name="domicilio"
+                [(ngModel)]="usuarioMuestra.domicilio"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Telèfono</mat-label>
+              <input
+                type="text"
+                matInput
+                name="telefono"
+                [(ngModel)]="usuarioMuestra.telefono"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Correo Electronico</mat-label>
+              <input
+                type="text"
+                matInput
+                name="email"
+                [(ngModel)]="usuarioMuestra.email"
+                pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
+              />
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="actualizarUsuario()"
+          >
+            Actualizar
+          </button>
+          <button mat-raised-button color="accent" (click)="cerrar()">
+            Cerrar
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

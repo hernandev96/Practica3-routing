@@ -1,0 +1,52 @@
+<app-barra-menu></app-barra-menu>
+
+<div class="contenedor">
+  <div class="contenedor-usuarios">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido(s)</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios; index as indice">
+          <td>{{ usuario.id }}</td>
+          <td>{{ usuario.nombre }}</td>
+          <td>{{ usuario.apellido }}</td>
+          <td>
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="activarDialog(indice)"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="contenedor-dialog" *ngIf="dialogActivo == true">
+  <div class="dialog">
+    <mat-card>
+      <mat-card-header>
+        <h1>¿Esta seguro que desea eliminar este usuario?</h1>
+      </mat-card-header>
+      <mat-card-content>
+        <p>*Una vez eliminado el usuario no se podra recuperar*</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="eliminarUsuario()">
+          Continuar
+        </button>
+        <button mat-raised-button color="accent" (click)="cancelar()">
+          Cancelar
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

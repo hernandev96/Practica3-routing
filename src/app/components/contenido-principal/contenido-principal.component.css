@@ -1,0 +1,14 @@
+.carrusel-contenedor{
+  width: calc(50%);
+  height: 600px;
+  border-radius: 20px;
+
+}
+.contenedor{
+  display: grid;
+  place-items: center;
+  margin-top: calc(5%);
+}
+.imagen-carrusel{
+  border-radius: 20px;
+}

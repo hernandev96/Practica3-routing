@@ -1,0 +1,112 @@
+<app-barra-menu></app-barra-menu>
+
+<div class="contenedor">
+  <div class="contenedor-usuarios">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <img
+              src="../../../assets/images/id.png"
+              alt="id imagen"
+              width="32"
+              height="32"
+            />
+            ID
+          </th>
+          <th>
+            <img
+              src="../../../assets/images/name.png"
+              alt="id imagen"
+              width="32"
+              height="32"
+            />Nombre
+          </th>
+          <th>
+            <img
+              src="../../../assets/images/name.png"
+              alt="id imagen"
+              width="32"
+              height="32"
+            />Apellidos
+          </th>
+          <th>
+            <img
+              src="../../../assets/images/options.png"
+              alt="id imagen"
+              width="32"
+              height="32"
+            />Opciones
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios; index as indice">
+          <td>
+            {{ usuario.id }}
+          </td>
+          <td>
+            {{ usuario.nombre }}
+          </td>
+          <td>
+            {{ usuario.apellido }}
+          </td>
+          <td>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="mostrarDetalles(indice)"
+            >
+              Ver màs
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cont1">
+    <div class="contenedor-informacion" *ngIf="usuarioMuestra.nombre != null">
+      <mat-card>
+        <mat-card-header>
+          <h1>Detalles del usuario</h1>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>
+            Nombre:
+            <p>{{ usuarioMuestra.nombre }}</p>
+          </h2>
+          <h2>
+            Apellido(s):
+            <p>{{ usuarioMuestra.apellido }}</p>
+          </h2>
+          <h2>
+            Edad:
+            <p>{{ usuarioMuestra.edad }} Años</p>
+          </h2>
+          <h2>
+            Peso:
+            <p>{{ usuarioMuestra.peso }} Kg</p>
+          </h2>
+          <h2>
+            Domicilio:
+            <p>{{ usuarioMuestra.domicilio }}</p>
+          </h2>
+          <h2>
+            Telèfono:
+            <p>{{ usuarioMuestra.telefono }}</p>
+          </h2>
+          <h2>
+            Correo Electronico:
+            <p>{{ usuarioMuestra.email }}</p>
+          </h2>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="accent" (click)="cerrar()">
+            Cerrar
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
